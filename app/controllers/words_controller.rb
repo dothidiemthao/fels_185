@@ -11,5 +11,10 @@ class WordsController < ApplicationController
     else
       Word.includes(:answers).search_by_condition params[:search_word]
     end.recent.paginate page: params[:page], per_page: Settings.per_page_words
+    respond_to do |format|
+      format.html
+      format.csv{send_data @words.to_csv}
+      format.xls
+    end
   end
 end

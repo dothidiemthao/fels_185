@@ -7,6 +7,10 @@
   <h2 class="word-list"><%= t "word.list_words" %></h2>
   <div class="col-md-9 col-md-offset-2">
     <div id ="words_record">
+      <%= t "download" %>
+      <%= link_to t("word.csv"), words_path(format: Settings.csv) %>
+      <%= t "symbol_stroke" %>
+      <%= link_to t("word.xls"), words_path(format: Settings.xls) %>
       <%= render "list_words" %>
     </div>
   </div>

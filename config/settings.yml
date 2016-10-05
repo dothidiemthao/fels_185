@@ -11,3 +11,5 @@ filter_words:
   learned_not_correct: "learned_not_correct"
   not_learned: "not_learned"
   get_all: "get_all"
+csv: "csv"
+xls: "xls"

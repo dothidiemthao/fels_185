@@ -30,6 +30,7 @@ en:
   view_profile: "View my profile"
   delete: "delete"
   symbol: "/"
+  symbol_stroke: "|"
   words_in_lesson: "words in Lesson"
   symbol_hyphen: "-"
   learn: "Learn"
@@ -39,6 +40,7 @@ en:
   all: "All"
   filter: "Filter"
   get_all: "get_all"
+  download: "Download: "
   category:
     categories: "Categories"
     search_categories: "Search categories by title"
@@ -50,6 +52,8 @@ en:
     word: "Word"
     mean: "Meaning of word"
     search_word: "Search words by condition"
+    csv: "CSV"
+    xls: "Excel"
   update:
     button: "Save changes"
     message: "Profile updated"
