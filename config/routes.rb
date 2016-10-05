@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "users#index", path: "/"
     resources :users, only: [:edit, :update, :index]
+    resources :categories
   end
 
   root "static_pages#home"
