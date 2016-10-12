@@ -26,7 +26,8 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = current_user.lessons.build lesson_params
-    if @lesson.category.words.any?
+    if @lesson.category.words.any? &&
+      @lesson.category.words.count >= @lesson.category.quantity_question
       if @lesson.save
         flash[:success] = t "lesson.success_create_message"
         redirect_to edit_lesson_path @lesson

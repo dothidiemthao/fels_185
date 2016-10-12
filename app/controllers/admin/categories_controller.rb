@@ -25,12 +25,17 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def update
-    if @category.update_attributes category_params
-      flash[:success] = t "category.message_success"
-      redirect_to admin_categories_path
+    if @category.is_block?
+      flash[:danger] = t "category.message_error"
+      redirect_to admin_categories_path @category
     else
-      flash[:danger] = t "category.message_failed"
-      render :edit
+      if @category.update_attributes category_params
+        flash[:success] = t "category.message_success"
+        redirect_to admin_categories_path
+      else
+        flash[:danger] = t "category.message_failed"
+        render :edit
+      end
     end
   end
 

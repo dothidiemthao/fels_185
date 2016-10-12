@@ -64,7 +64,7 @@ class Admin::WordsController < Admin::BaseController
 
   def word_params
     params.require(:word).permit :content,
-      answers_attributes: [:id, :content, :is_correct]
+      answers_attributes: [:id, :content, :is_correct, :_destroy]
   end
 
   def verify_category_is_block
