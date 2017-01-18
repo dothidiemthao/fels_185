@@ -36,8 +36,6 @@
                 </ul>
               </li>
             <% else %>
-              <li><%= link_to t("category.categories"), categories_path %></li>
-              <li><%= link_to t("words"), words_path %></li>
               <li>
                 <%= link_to users_path do %>
                   <span class="glyphicon glyphicon-list"></span>
@@ -45,6 +43,8 @@
                 <% end %>
               </li>
             <% end %>
+            <li><%= link_to t("category.categories"), categories_path %></li>
+            <li><%= link_to t("words"), words_path %></li>
             <li>
               <%= link_to "#", {class: "dropdown-toggle",
                 "data-toggle": "dropdown"} do %>

@@ -100,7 +100,7 @@ en:
     correct: "Correct answer"
     correct_answer: "Correct answer is: "
     not_word: "This Lesson has not any words!!!"
-    cannot_start_message: "This category hasn't words, can't start Lesson"
+    cannot_start_message: "This category not enough words, can't start Lesson"
   index_user:
     message: "Please log in."
     title: "All users"

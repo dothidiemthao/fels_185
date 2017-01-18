@@ -1,10 +1,10 @@
 class Word < ActiveRecord::Base
   belongs_to :category
   has_many :answers, dependent: :destroy
-  accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :answers, allow_destroy: true
   validates :content, presence: true,
     length: {maximum: Settings.maximum_length_content_word}
-  validate :answers_quantity
+  validate :validates_answers
   validates :content, uniqueness: true
   scope :recent, ->{order "created_at DESC"}
   scope :random, ->{order "RANDOM()"}
@@ -47,10 +47,11 @@ class Word < ActiveRecord::Base
   end
 
   private
-  def answers_quantity
+  def validates_answers
     errors.add :answers, I18n.t("word.answer_quanlity_error") if
-      answers.size < Settings.answer_quanlity
+      answers.select{|answer| !answer._destroy}.count <
+        Settings.answer_quanlity
     errors.add :answers, I18n.t("word.must_has_correct_answer_error") if
-      answers.reject{|answer| !answer.is_correct?}.count == 0
+      answers.detect{|answer| answer.is_correct? && !answer._destroy}.nil?
   end
 end
