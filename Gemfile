@@ -18,9 +18,6 @@ gem "carrierwave"
 gem "faker",                   "1.4.2"
 gem "will_paginate",           "3.0.9"
 
-
-
-
 group :development, :test do
   gem "sqlite3"
   gem "byebug",      "3.4.0"
